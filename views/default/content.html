@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>{{list.title}}</title>
+    <meta name="Keywords" content="{{list.keywords}}" />
+    <meta name="Description" content="{{list.description}}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="/default/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/default/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="/default/css/heder_nav-menu.css" />
+    <link rel="stylesheet" type="text/css" href="/default/css/successful_case.css" />
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <style>
+        .highlight {
+            font-size: larger;
+            background: rgba(255, 230, 0, 0.5);
+            padding: 3px 5px;
+            margin: -3px -5px;
+            line-height: 1.7;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    {{include 'default/public/header.html'}}
+
+
+    <div id="main_wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <!-- <div class="content" style="    max-width: 1140px;margin: 0 auto;"> -->
+                    <h2 class="highlight">{{list.title}}</h2>
+                    <p>
+
+                        {{@list.content}}
+                    </p>
+                    <!-- </div> -->
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+    {{include 'default/public/footer-content.html'}}
+
+
+</body>
+
+</html>

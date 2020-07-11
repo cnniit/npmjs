@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{{setting.site_title}}</title>
+<meta name="Keywords" content="{{setting.site_keywords}}" />
+<meta name="Description" content="{{setting.site_description}}" />
+<link rel="stylesheet" type="text/css" href="default/css/reset.css" />
+<link rel="stylesheet" type="text/css" href="default/css/common.css" />
+<link rel="stylesheet" type="text/css" href="default/css/heder_nav-menu.css"/>
+<link rel="stylesheet" type="text/css" href="default/css/successful_case.css"/>
+<link rel="stylesheet" type="text/css" href="default/css/bootstrap.min.css"/>
+</head>
+
+<body>
+
+
+{{include 'default/public/header.html'}}
+
+
+<div id="header_title-wrapper">
+
+
+		<!-- <div class="header_cate">
+			{{each catelist}}
+					<a {{if pid==$value._id}}class="active"{{/if}} href="/news?pid={{@$value._id}}">{{$value.title}}</a>
+			{{/each}}
+		</div> -->
+
+
+</div>
+
+
+<div id="main_wrapper">
+
+    
+    <div class="main">
+	    <ul class="clear">
+
+			<!-- {{each newslist}}
+				<li>
+
+					<a href="content/{{@$value._id}}"><img src="{{$value.img_url}}" /></a>
+
+					<p>{{$value.title}}</p>
+
+
+				</li>
+			{{/each}} -->
+			<h1></h1>
+
+			<p >{{@title}}</p>
+			
+	   
+	    
+	    </ul>
+		<div id="page" class="pagination"></div>
+    
+    </div>
+
+
+
+
+</div>
+
+{{include 'default/public/footer.html'}}
+
+<script src="/default/js/jquery-1.10.2.min.js"></script>
+<script src="/default/js/jqPaginator.js"></script>
+
+<script>
+
+	$('#page').jqPaginator({
+		totalPages: {{totalPages}},
+		visiblePages: 6,
+		currentPage: {{page}},
+		onPageChange: function (num, type) {
+
+		if(type=='change'){
+			{{if q}}
+				location.href="/search?q={{q}}&page="+num;
+
+				{{else}}
+				location.href="/search?q="+num;
+				{{/if}}
+				}
+			}
+		});
+</script>
+
+</body>
+</html>

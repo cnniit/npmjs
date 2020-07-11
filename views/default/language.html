@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>语言 - 笔记</title>
+<title>heder_nav-menu</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+ 
+<link rel="stylesheet" type="text/css" href="default/css/reset.css" />
+<link rel="stylesheet" type="text/css" href="default/css/common.css" />
+<link rel="stylesheet" type="text/css" href="default/css/heder_nav-menu.css"/>
+<link rel="stylesheet" type="text/css" href="default/css/successful_case.css"/>
+
+    <link rel="stylesheet" type="text/css" href="default/css/bootstrap.min.css"/>
+
+
+<!-- <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+
+</head>
+
+<body>
+
+
+{{include 'default/public/header.html'}}
+
+
+<div id="header_title-wrapper">
+
+    <div class="header_cate">
+		{{each catelist}}
+        		<a {{if pid==$value._id}}class="active"{{/if}} href="/language?pid={{@$value._id}}">{{$value.title}}</a>
+		{{/each}}
+    </div>
+
+
+</div>
+
+
+<!-- <div id="main_wrapper"> -->
+
+    
+    <!-- <div class="main"> -->
+	    <!-- <ul class="clear">
+
+			{{each articlelist}}
+	    
+				<li>
+
+						<a href="content/{{@$value._id}}"><img src="{{$value.img_url}}" /></a>
+
+						<p>{{$value.title}}</p>
+
+
+				</li>
+
+			{{/each}}
+            
+        </ul> -->
+        <div class="container">
+
+            <ul class="list-group">
+                {{each articlelist}}
+                <li class="list-group-item"><a href="content/{{@$value._id}}">{{$value.title}}</a></li>
+                {{/each}}
+              </ul>
+    
+    
+            <div id="page" class="pagination"></div>
+        </div>
+    <!-- </div> -->
+
+
+
+<!-- </div> -->
+
+
+
+{{include 'default/public/footer.html'}}
+
+
+<script src="/default/js/jquery-1.10.2.min.js"></script>
+<script src="/default/js/jqPaginator.js"></script>
+
+<script>
+
+    $('#page').jqPaginator({
+        totalPages: {{totalPages}},
+        visiblePages: 6,
+        currentPage: {{page}},
+        onPageChange: function (num, type) {
+
+            if(type=='change'){
+                 {{if pid}}
+                     location.href="/language?pid={{pid}}&page="+num;
+
+                 {{else}}
+                      location.href="/language?page="+num;
+                 {{/if}}
+            }
+        }
+    });
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<link rel="stylesheet" type="text/css" href="/default/css/bootstrap.min.css"/>
+<script src="/admin/js/jquery-1.10.2.min.js"></script> 
+<link rel="stylesheet" type="text/css" href="/admin/js/bootstrap.min.js" />
+<style>
+    .active{
+        color: #fff;
+        background-color: #47a447;
+        border-color: #398439;
+    }
+</style>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/" alt="{{setting.site_title}}">Node笔记</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                {{each nav}}
+                    <li>
+                        <a href="{{$value.url}}" {{if pathname==$value.url}} class="active" {{/if}}>{{$value.title}}</a>
+                    </li>
+
+                {{/each}}
+            </ul>
+        </div>
+
+        <form class="navbar-form navbar-right" role="search" action="/search">
+            <div class="form-group">
+                 <input type="text" class="form-control" placeholder="站内搜索1" name="q">
+                 <button type="submit" class="btn btn-default">搜索</button>
+            </div>
+            
+        </form>
+        </div>
+    </nav>
+
+<!-- <div id="header-wrapper">
+    <div class="header-inner">
+        <div class="logo">
+            <img src="/{{setting.site_logo}}" alt="{{setting.site_title}}" style="height:72px"/>
+        </div>
+        <div class="nav">
+            <ul class="clear">
+                {{each nav}}
+                    <li>
+                        <a href="{{$value.url}}" {{if pathname==$value.url}} class="active" {{/if}}>{{$value.title}}</a>
+                    </li>
+
+                {{/each}}
+
+
+            </ul>
+        </div>
+    </div>
+</div> -->

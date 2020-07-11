@@ -1,0 +1,39 @@
+
+
+<!-- Custom Theme files -->
+<link href="footer/css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<!-- for-mobile-apps -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="keywords" content="Flat Footer Widget Responsive, Login form web template, Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<!-- //for-mobile-apps -->
+
+<!--Google Fonts-->
+<link href='//fonts.googleapis.com/css?family=Ubuntu:400,500,700' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Cabin+Condensed:400,500,700' rel='stylesheet' type='text/css'>
+
+<!--footer strat here-->
+<div class="footer" >
+	<div class="wrap">
+				<div class="footer-grid">
+					<h4>友情链接</h4>
+					<ul>
+						{{each links}}
+							<li><a href="{{$value.url}}" target="_blank">{{$value.title}}</a></li>
+						{{/each}}
+					</ul>	
+				</div>
+				<div class="footer-grid">
+					<h4>联系我</h4>
+					<ul class="">
+						<li><a href="#" class="fb"> <img src="footer/images/qq.jpg" style=" border-radius: 50%;   width:24px; height: 24px;"/></a></li>
+						<li><a href="#" class="tw"> <img src="footer/images/wc.jpg" style=" border-radius: 50%;   width:24px; height: 24px;"/></a></li>
+					</ul>
+				</div>
+				<div class="clear"> </div>
+</div>
+<!--footer end here-->
+<div class="copy-rights">		 	
+	<p> Design by Bootstrap & Koa2 & Mongodb & Elasticsearch</p>		 	
+</div>

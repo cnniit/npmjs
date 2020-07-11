@@ -1,0 +1,126 @@
+<link rel="stylesheet" type="text/css" href="/default/css/bootstrap.min.css"/>
+<script src="/admin/js/jquery-1.10.2.min.js"></script> 
+<link rel="stylesheet" type="text/css" href="/admin/js/bootstrap.min.js" />
+<style>
+    /* 下拉按钮样式 */
+    .dropbtn {
+        background-color: #e8f2f2;
+        color: #000;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+    .dropbtnclick {
+        background-color: #e8f2f2;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border:brown;
+        cursor: pointer;
+    }
+    
+    /* 容器 <div> - 需要定位下拉内容 */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+    
+    /* 下拉内容 (默认隐藏) */
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    }
+    
+    /* 下拉菜单的链接 */
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+    
+    /* 鼠标移上去后修改下拉菜单链接颜色 */
+    .dropdown-content a:hover {background-color: #f1f1f1}
+    
+    /* 在鼠标移上去后显示下拉菜单 */
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    
+    /* 当下拉内容显示后修改下拉按钮的背景颜色 */
+    .dropdown:hover .dropbtn {
+        background-color: #3e8e41;
+    }
+    </style>
+<!-- <div style="    width: 1140px;margin: 0 auto;"> -->
+{{each nav}}
+<div class="dropdown" >
+  <button class="dropbtn">{{$value.title}}</button>
+  <div class="dropdown-content" style="z-index: 3;">
+    {{if $value.title == '首页'}}
+    <a href="{{$value.url}}" {{if pathname==$value.url}} class="active" {{/if}}>{{$value.title}}</a>
+    {{/if}}
+    {{if $value.title == '成功案例'}}
+    {{each cateResult}}
+    <a href='/case?pid={{@$value._id}}' {{if pathname==$value.url}} class="active" {{/if}}>{{$value.title}}</a>
+    {{/each}}
+    {{/if}}
+    {{if $value.title == '开发服务'}}
+    {{each serviceList}}
+    <a href='/content/{{@$value._id}}'>{{$value.title}}</a>
+    {{/each}}
+    {{/if}}
+    {{if $value.title == '新闻资讯'}}
+    {{each newsResult}}
+    <a href='/news?pid={{@$value._id}}'>{{$value.title}}</a>
+    {{/each}}
+    {{/if}}
+    {{if $value.title == '关于我们'}}
+    <a href='/about'>{{$value.title}}</a>
+    {{/if}}
+    {{if $value.title == '联系我们'}}
+    <a href='/connect'>{{$value.title}}</a>
+    {{/if}}
+    {{if $value.title == '广告'}}
+    <a href='http://www.npmjs.top'>{{$value.title}}</a>
+    {{/if}}
+
+    {{if $value.title == '语言'}}
+    {{each languageResult}}
+    <a href='/language?pid={{@$value._id}}' {{if pathname==$value.url}} class="active" {{/if}}>{{$value.title}}</a>
+    {{/each}}
+    {{/if}}
+    {{if $value.title == '框架'}}
+    {{each frameworkResult}}
+    <a href='/framework?pid={{@$value._id}}' {{if pathname==$value.url}} class="active" {{/if}}>{{$value.title}}</a>
+    {{/each}}
+    {{/if}}
+    {{if $value.title == '中间件'}}
+    {{each middlewareList}}
+    <a href='/content/{{@$value._id}}'>{{$value.title}}</a>
+    {{/each}}
+    {{/if}}
+  </div>
+</div>
+{{/each}}
+
+<form class="navbar-form navbar-right" role="search" action="/search">
+    <div class="form-group">
+         <input type="text" class="form-control" placeholder="站内搜索" name="q">
+         <button type="submit" class="btn btn-default">搜索</button>
+    </div>
+    
+</form>
+    
+<!-- <div style="z-index: 3;float: right;">
+
+    <form action="/search">
+        站内搜索: <input type="text" name="q"><br>
+        <input type="submit" value="搜索">
+        </form>
+</div> -->
+<!-- </div> -->
